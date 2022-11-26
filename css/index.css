@@ -1,0 +1,587 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+}
+/* 修改默认样式 */
+h4,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* 布局˙整体 .viewport */
+
+.viewport {
+  min-width: 1024px;
+  max-width: 1920px;
+  /* min-height: 6rem; */
+  margin: 0 auto;
+  padding: 0.875rem 0.25rem 0;
+  background: url(../images/logo.png) no-repeat;
+  background-size: contain;
+  display: flex;
+}
+
+.viewport > .column {
+  flex: 3;
+  /* background-color: rgb(241, 210, 210); */
+}
+
+.viewport > .column:nth-of-type(2) {
+  flex: 4;
+  /* background-color: rgb(184, 217, 247); */
+  margin: 0.375rem 0.1875rem 0;
+}
+
+/* 公共样式  图片边框 */
+.panel {
+  border: 1px solid transparent;
+  border-image-source: url(../images/border.png);
+  border-width: 0.6375rem 0.475rem 0.25rem 1.65rem;
+  border-image-slice: 51 38 20 132;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.inner {
+  position: absolute;
+  top: -0.6375rem;
+  right: -0.475rem;
+  bottom: -0.25rem;
+  left: -1.65rem;
+  padding: 0.225rem 0.325rem;
+}
+
+.panel h3 {
+  font-size: 0.225rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* 概览模块 */
+.overview {
+  height: 1.25rem;
+  box-sizing: border-box;
+}
+
+.overview ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overview h4 {
+  font-size: 0.3rem;
+  color: white;
+  margin: 0 0 0.06rem 0;
+}
+
+.overview ul li {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.overview ul li span {
+  font-size: 0.15rem;
+  color: #4c9bfd;
+}
+
+/* 全部样式的小竖点 */
+.line {
+  display: inline-block;
+  width: 0.05rem;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 0.025rem;
+}
+
+/* 监控部分 */
+.monitoring {
+  height: 4rem;
+}
+.monitoring > .inner {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  /* background-color: rgb(245, 183, 183, 0.6); */
+}
+
+/* 监控导航部分 */
+.monitoring .tabs {
+  font-size: 0.225rem;
+  /* background-color: rgb(224, 144, 144); */
+  height: 0.375rem;
+  display: flex;
+  align-items: center;
+}
+.tabs a {
+  color: #1950c4;
+}
+.tabs .active {
+  color: white;
+}
+
+/* 两个a标签中间的 竖线 */
+.tabs > .line {
+  display: inline-block;
+  width: 3px;
+  height: 30px;
+  background-color: #6feeef;
+  margin: 0 0.25rem;
+  border-radius: 0;
+}
+.content {
+  /* background-color: rgb(221, 185, 185); */
+  margin-top: 0.125rem;
+  box-sizing: border-box;
+  flex: 1;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.monitoring .content > .top {
+  height: 0.4375rem;
+  color: #68d8fe;
+  line-height: 0.4375rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 0.15rem;
+}
+.content .row {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 0.15rem;
+  line-height: 0.435rem;
+  color: #61a8ff;
+}
+.content .col:nth-of-type(1) {
+  width: 1rem;
+}
+.content .col:nth-of-type(2) {
+  width: 2.5rem;
+  /* background-color: red; */
+}
+.content .col:nth-of-type(3) {
+  width: 1rem;
+}
+
+/* 滚动动画 */
+.message {
+  flex: 1;
+  overflow: hidden;
+}
+
+.message > .messageScrool {
+  animation: rollPlay linear 10s infinite;
+}
+
+@keyframes rollPlay {
+  0% {
+  }
+
+  100% {
+    transform: translateY(-40%);
+  }
+}
+
+/* 点位分布部分 */
+.point {
+  height: 2.6rem;
+}
+
+/* 点位分布下面整体 */
+.point .chart {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rgb(250, 212, 212); */
+  margin-top: 0.125rem;
+}
+
+.point .pie {
+  width: 3.9rem;
+  height: 2.4rem;
+  /* background-color: rgb(243, 195, 195); */
+}
+
+.point .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.1rem;
+  padding: 0.45rem 0.3rem;
+  box-sizing: border-box;
+  background-image: url(../images/rect.png);
+  background-size: cover;
+}
+
+.point h4 {
+  font-size: 0.25rem;
+  color: #fff;
+}
+.point span {
+  display: block;
+  color: #f8ab05;
+  font-size: 0.175rem;
+}
+/*点位总数和本月新增左侧的点 同意使用line类名 在上面概览模块已经设置过了  只用在内部写bagcground-color颜色即可*/
+
+/* 地图  */
+
+.map {
+  height: 6rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.map h3 {
+  line-height: 1;
+  padding: 0.2rem 0;
+  margin: 0;
+  font-size: 0.2rem;
+  color: #fff;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+.map .iconCube {
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-right: 0.0625rem;
+  background-color: #fff;
+  background: url(../images/shebei.png) no-repeat;
+  background-size: contain;
+}
+.map .chart {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.map .geo {
+  width: 100%;
+  height: 100%;
+}
+
+/* 用户模块 */
+.users {
+  height: 2.6rem;
+  display: flex;
+}
+.users .chart {
+  display: flex;
+  margin-top: 0.125rem;
+}
+.users .bar {
+  width: 7.35rem;
+  height: 2.4rem;
+  /* background-color: rgb(211, 133, 133); */
+}
+.users .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.1rem;
+  padding: 0.45rem 0.3rem;
+  box-sizing: border-box;
+  background-image: url(../images/rect.png);
+  background-size: cover;
+}
+.users h4 {
+  /* margin-bottom: 0.15rem; */
+  font-size: 0.25rem;
+  color: #fff;
+}
+.users span {
+  display: block;
+  color: #4cfde2;
+  font-size: 0.175rem;
+}
+/* 订单 */
+.order{
+  width: 100%;
+  height: 1.75rem;
+  box-sizing: border-box;
+  position: relative;
+  font-size: .175rem;
+}
+.order .inner{
+  font-size: .2rem;
+  position: absolute;
+  left: -1.4rem;
+  top: -0.5rem;
+  padding: 0;
+  right: -0.2rem;
+    bottom: 0rem;
+
+}
+.order_title{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.order_title .active{
+  color: #fff;
+  font-size: .225rem;
+}
+.order_title a{
+  border-right: 0.025rem solid #00f2f1;
+  width: 20%;
+  text-align: center;
+  height: .25rem;
+  line-height: .25rem;
+  color:#1950c4;
+}
+.order_title a:nth-last-of-type(1){
+  border-right: none;
+}
+.order .order_data{
+  width: 100%;
+  height: 1.125rem;
+  
+}
+.order .ordata{
+  width: 100%;
+  margin-top: .1875rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+
+}
+.order .ordata >h4{
+  width: 50%;
+  height: .375rem;
+  line-height: .375rem;
+  font-size: .25rem;
+  color: #fff;
+}
+.order .ordata >span{
+  color: #4c9bfd;
+  font-size: .175rem;
+  width: 50%;
+  height: .375rem;
+  line-height: .375rem;
+}
+.order_data .chose{
+  display: none ;
+}
+/* sales */
+.sales{
+
+  width: 100%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+  font-size: .175rem;
+}
+.sales .inner{
+  font-size: .2rem;
+  position: absolute;
+  left: -1.4rem;
+  top: -0.5rem;
+  padding: 0;
+  right: -0.2rem;
+  box-sizing: border-box;
+    bottom: 0rem;
+}
+.inner .sales_title{
+  width: 100%;
+  height: .25rem;
+  font-size: .2375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+}
+.sales_title h3{
+  width: 30%;
+  line-height: .25rem;
+  height: .25rem;
+  border-right: 0.025rem solid #00f2f1;
+}
+.sales_title a{
+  width: .25rem;
+  height: .25rem;
+  font-size: .175rem;
+  text-align: center;
+  /* margin: 0 .25rem; */
+  line-height: .25rem;
+  margin: 0 .125rem;
+  color: #0bace6;
+  
+}
+.sales_title .active{
+  background-color: rgb(76, 155, 253);
+  color: #fff;
+}
+.sales_data{
+  width: 100%;
+  height: 2rem;
+  /* background-color: green; */
+}
+.sales_data .sales_line{
+  width: 100%;
+  height: 2rem;
+}
+/* 渠道 */
+.wrap{
+  width: 100%;
+  height: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+.wrap .channel{
+  width: 55%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+  font-size: .175rem;
+}
+.channel .inner{
+  font-size: .2rem;
+  position: absolute;
+  left: -1.4rem;
+  top: -0.5rem;
+  padding: 0;
+  right: -0.2rem;
+  box-sizing: border-box;
+    bottom: 0rem;
+}
+.channel .inner h3{
+  font-size: .25rem;
+  width: 100%;
+  height: .3125rem;
+}
+
+.channel .inner .channel_chart{
+  width: 100%;
+  height: 1.875rem;
+  /* background-color: green; */
+}
+
+.quarter{
+  width: 43%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+  font-size: .175rem;
+}
+.quarter .inner{
+  font-size: .2rem;
+  position: absolute;
+  left: -1.4rem;
+  top: -0.5rem;
+  padding: 0;
+  right: -0.2rem;
+  box-sizing: border-box;
+    bottom: 0rem;
+
+}
+.quarter .inner h3{
+  font-size: .2375rem;
+  height: .25rem;
+  line-height: .25rem;
+}
+.quarter .inner .label{
+  height: 1rem;
+  line-height: .75rem;
+  padding-top: .25rem;
+  font-size: .375rem;
+  text-align: center;
+  color: #FFF;
+  box-sizing: border-box;
+}
+.quarter .inner .label span{
+  font-size: .175rem;
+}
+.quarter .inner .item{
+width: 100%;
+height: .75rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.quarter .inner .item h4{
+  width: 50%;
+  height: .5rem;
+  font-size: .25rem;
+  color: #fff;
+}
+.quarter .inner .item span{
+  width: 50%;
+  font-size: .175rem;
+  height: .25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #4cfde2;
+}
+.plan{
+  width: 100%;
+  height: 2.6rem;
+  position: relative;
+  font-size: .175rem;
+  box-sizing: border-box;
+}
+.plan .inner{
+  font-size: .2rem;
+  position: absolute;
+  left: -1.4rem;
+  top: -0.5rem;
+  padding: 0;
+  right: -0.2rem;
+  box-sizing: border-box;
+    bottom: 0rem;
+}
+.plan .inner h3{
+  height: .375rem;
+  font-size: .25rem;
+  line-height: .375rem;
+}
+/* bolangqiu */
+.plan_content{
+  width: 100%;
+  height: 1.75rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.plan_content .circle{
+  width: 65%;
+  height: 100%;
+  
+}
+.plan_content .data{
+  /* background-color: #00f2f1; */
+  width: 34%;
+  background:url(../images/rect.png);
+  background-size: cover;
+  text-align: center;
+}
+.plan_content .data h3{
+  width: 100%;
+  height: .375rem;
+  font-size: .25rem;
+  line-height: .375rem;
+}
+.plan_content .data span{
+  display: block;
+  width: 100%;
+  height: .375rem;
+  font-size: .175rem;
+  line-height: .375rem;
+  color: #f8ab05;
+}
